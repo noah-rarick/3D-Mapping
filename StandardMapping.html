@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mapbox 3D Map with Standard Style</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <div id='map' style='width: 1000px; height: 1000px;'></div>
+    <script>
+    // TO MAKE THE MAP APPEAR YOU MUST
+    // ADD YOUR ACCESS TOKEN FROM
+    // https://account.mapbox.com
+    mapboxgl.accessToken = 'pk.eyJ1Ijoibm9haHNhbW9hIiwiYSI6ImNsb3Q3Z2lkaTA2aDQycnA4MmdqZ2J1cGYifQ.8NMJu7X2FcPeARpvIH0ItA';
+    const map = new mapboxgl.Map({
+        // style: "mapbox://styles/noahsamoa/clpg3jwk6005d01olda7wfajm",
+        container: 'map', // container ID
+        center: [-122.3491, 47.6204], // starting position [lng, lat]
+        zoom: 15.5, // starting zoom
+        pitch: 70,
+        bearing: -17.6,
+    });
+
+    map.on('style.load', () => {
+    map.setConfigProperty('basemap', 'lightPreset', 'dusk');
+    });
+    </script>
+</body>
+</html>
